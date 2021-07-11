@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\DosenController;
+use App\Http\Controllers\StaffController;
+use App\Http\Controllers\StudentController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,21 +22,36 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
     return view('profile.show');
 })->name('profile');
 
-Route::resource('/dosen', DosenController::class, [
+
+Route::middleware(['auth:sanctum', 'verified'])->resource('/dosen', DosenController::class, [
     'names' => [
         'index' => 'dosen',
         'create' => 'dosen.create',
         'store' => 'dosen.store',
         'edit' => 'dosen.edit',
         'update' => 'dosen.update',
-        'delete' => 'dosen.delete',
+        'destroy' => 'dosen.destroy',
     ]
 ]);
 
-Route::get('/staff', function () {
-    return view('staff.show');
-})->name('staff');
+Route::middleware(['auth:sanctum', 'verified'])->resource('/staff', StaffController::class, [
+    'names' => [
+        'index' => 'staff',
+        'create' => 'staff.create',
+        'store' => 'staff.store',
+        'edit' => 'staff.edit',
+        'update' => 'staff.update',
+        'destroy' => 'staff.destroy',
+    ]
+]);
 
-Route::get('/student', function () {
-    return view('student.show');
-})->name('student');
+Route::middleware(['auth:sanctum', 'verified'])->resource('/student', StudentController::class, [
+    'names' => [
+        'index' => 'student',
+        'create' => 'student.create',
+        'store' => 'student.store',
+        'edit' => 'student.edit',
+        'update' => 'student.update',
+        'destroy' => 'student.destroy',
+    ]
+]);

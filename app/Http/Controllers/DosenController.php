@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Dosen;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DosenController extends Controller
 {
@@ -12,9 +13,15 @@ class DosenController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('dosen.index');
+        $role = Auth::user()->role;
+        if ($role == 'admin') {
+            $dosens = Dosen::all();
+            return view('dosen.index', compact('dosens'))->with('i', ($request->input('page', 1) - 1) * 5);
+        } else {
+            return abort(404);
+        }
     }
 
     /**
@@ -24,7 +31,12 @@ class DosenController extends Controller
      */
     public function create()
     {
-        return view('dosen.create');
+        $role = Auth::user()->role;
+        if ($role == 'admin') {
+            return view('dosen.create');
+        } else {
+            return abort(404);
+        }
     }
 
     /**
@@ -35,51 +47,99 @@ class DosenController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
-        return 'anjim';
+        $role = Auth::user()->role;
+        if ($role == 'admin') {
+            $dosen = new Dosen();
+
+            $validatedData = $request->validate([
+                'nidin' => ['required', 'string'],
+                'name' => ['required', 'string'],
+                'email' => ['required', 'string'],
+                'mata_kuliah' => ['required', 'string'],
+            ]);
+            $inputs = $validatedData;
+
+            $dosen::create($inputs);
+
+            return redirect('dosen');
+        } else {
+            return abort(404);
+        }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Dosen  $dosen
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Dosen $dosen)
+    public function show($id)
     {
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Dosen  $dosen
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Dosen $dosen)
+    public function edit($id)
     {
-        //
+        $role = Auth::user()->role;
+        if ($role == 'admin') {
+            $dosen = Dosen::find($id);
+            return view('dosen.edit', compact('dosen'));
+        } else {
+            return abort(404);
+        }
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Dosen  $dosen
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Dosen $dosen)
+    public function update(Request $request, $id)
     {
-        //
+        $role = Auth::user()->role;
+        if ($role == 'admin') {
+            $dosen = new Dosen();
+
+            $validatedData = $request->validate([
+                'nidin' => ['required', 'string'],
+                'name' => ['required', 'string'],
+                'email' => ['required', 'string'],
+                'mata_kuliah' => ['required', 'string'],
+            ]);
+            $inputs = $validatedData;
+
+            $dosen::find($id)->update($inputs);
+
+            return redirect('dosen');
+        } else {
+            return abort(404);
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Dosen  $dosen
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Dosen $dosen)
+    public function destroy($id)
     {
-        //
+        $role = Auth::user()->role;
+        if ($role == 'admin') {
+            $dosen = Dosen::find($id);
+            $dosen->delete();
+
+            return redirect('dosen');
+        } else {
+            return abort(404);
+        }
     }
 }

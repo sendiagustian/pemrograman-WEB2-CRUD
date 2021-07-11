@@ -28,7 +28,7 @@
 <?php endif; ?>
                 </div>
 
-                <?php if(Auth::user()->role == 'admin'): ?>
+                <!-- <?php if(Auth::user()->role == 'admin'): ?> -->
                 <div class="hidden space-x-4 sm:-my-px sm:ml-10 sm:flex">
                     <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'jetstream::components.nav-link','data' => ['href' => ''.e(route('dosen')).'','active' => request()->routeIs('dosen')]]); ?>
@@ -79,7 +79,7 @@
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
                 </div>
-                <?php endif; ?>
+                <!-- <?php endif; ?> -->
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">

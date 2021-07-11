@@ -17,145 +17,43 @@
                 <div class="pb-4">
                     <a href="<?php echo e(route('dosen.create')); ?>"> <button type="submit" class="btn btn-primary">Tambah Data</button> </a>
                 </div>
-                <table class="table table-striped">
-                    <thead>
-                        <th scope="col">No</th>
-                        <th scope="col">NIDIN</th>
-                        <th scope="col">Nama</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Keahlian</th>
-                        <th scope="col">Action</th>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>19012830912</td>
-                            <td>Otto</td>
-                            <td>otto@gmail.com</td>
-                            <td>Dosen</td>
-                            <td>
-                                <a href="#" class="btn btn-danger">Delete</a>
-                                |
-                                <a href="#" class="btn btn-success">
-                                    Edit
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>19012830912</td>
-                            <td>Otto</td>
-                            <td>otto@gmail.com</td>
-                            <td>Dosen</td>
-                            <td>
-                                <a href="#" class="btn btn-danger">Delete</a>
-                                |
-                                <a href="#" class="btn btn-success">
-                                    Edit
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>19012830912</td>
-                            <td>Otto</td>
-                            <td>otto@gmail.com</td>
-                            <td>Dosen</td>
-                            <td>
-                                <a href="#" class="btn btn-danger">Delete</a>
-                                |
-                                <a href="#" class="btn btn-success">
-                                    Edit
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>19012830912</td>
-                            <td>Otto</td>
-                            <td>otto@gmail.com</td>
-                            <td>Dosen</td>
-                            <td>
-                                <a href="#" class="btn btn-danger">Delete</a>
-                                |
-                                <a href="#" class="btn btn-success">
-                                    Edit
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>19012830912</td>
-                            <td>Otto</td>
-                            <td>otto@gmail.com</td>
-                            <td>Dosen</td>
-                            <td>
-                                <a href="#" class="btn btn-danger">Delete</a>
-                                |
-                                <a href="#" class="btn btn-success">
-                                    Edit
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>19012830912</td>
-                            <td>Otto</td>
-                            <td>otto@gmail.com</td>
-                            <td>Dosen</td>
-                            <td>
-                                <a href="#" class="btn btn-danger">Delete</a>
-                                |
-                                <a href="#" class="btn btn-success">
-                                    Edit
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>19012830912</td>
-                            <td>Otto</td>
-                            <td>otto@gmail.com</td>
-                            <td>Dosen</td>
-                            <td>
-                                <a href="#" class="btn btn-danger">Delete</a>
-                                |
-                                <a href="#" class="btn btn-success">
-                                    Edit
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>19012830912</td>
-                            <td>Otto</td>
-                            <td>otto@gmail.com</td>
-                            <td>Dosen</td>
-                            <td>
-                                <a href="#" class="btn btn-danger">Delete</a>
-                                |
-                                <a href="#" class="btn btn-success">
-                                    Edit
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>19012830912</td>
-                            <td>Otto</td>
-                            <td>otto@gmail.com</td>
-                            <td>Dosen</td>
-                            <td>
-                                <a href="#" class="btn btn-danger">Delete</a>
-                                |
-                                <a href="#" class="btn btn-success">
-                                    Edit
-                                </a>
-                            </td>
-                        </tr>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead id="table">
+                            <th scope="col">No</th>
+                            <th scope="col">NIDIN</th>
+                            <th scope="col">Nama</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Mata Kuliah</th>
+                            <th scope="col">Action</th>
+                        </thead>
+                        <tbody id="table">
+                            <?php $__currentLoopData = $dosens; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $dosen): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <tr>
+                                <td><?php echo e(++$i); ?></td>
+                                <td><?php echo e($dosen->nidin); ?></td>
+                                <td><?php echo e($dosen->name); ?></td>
+                                <td><?php echo e($dosen->email); ?></td>
+                                <td><?php echo e($dosen->mata_kuliah); ?></td>
+                                <td>
+                                    <form style='display:inline' , method="POST" action="<?php echo route('dosen.destroy', $dosen->id); ?> ">
+                                        <?php echo csrf_field(); ?>
+                                        <?php echo method_field('DELETE'); ?>
+                                        <button onclick="return confirm('Anda akan menghapus data?')" class="btn btn-danger">
+                                            <?php echo e(__('Delete')); ?>
 
-                    </tbody>
-                </table>
+                                        </button>
+                                    </form>
+                                    |
+                                    <a href="<?php echo e(route('dosen.edit', $dosen->id)); ?>" class="btn btn-success">
+                                        Edit
+                                    </a>
+                                </td>
+                            </tr>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

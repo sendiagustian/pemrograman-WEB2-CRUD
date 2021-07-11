@@ -13,7 +13,7 @@
                         {{ __('Menambah data dosen') }}
                     </x-slot>
                     <x-slot name="description">
-                        {{ __('Update your account\'s profile information and email address.') }}
+                        {{ __('Tambah data dosen dengan informasi yang lengkap, isi semua inputan dengan benar.') }}
                     </x-slot>
                 </x-jet-section-title>
 
@@ -45,9 +45,9 @@
 
                                 <!-- Email -->
                                 <div class="col-span-6 sm:col-span-4">
-                                    <x-jet-label for="keahlian" value="{{ __('Keahlian') }}" />
-                                    <x-jet-input id="keahlian" type="text" class="mt-1 block w-full" name="keahlian" :value="old('keahlian')" required />
-                                    <x-jet-input-error for="keahlian" class="mt-2" />
+                                    <x-jet-label for="mata_kuliah" value="{{ __('Mata Kuliah') }}" />
+                                    <x-jet-input id="mata_kuliah" type="text" class="mt-1 block w-full" name="mata_kuliah" :value="old('mata_kuliah')" required />
+                                    <x-jet-input-error for="mata_kuliah" class="mt-2" />
                                 </div>
                             </div>
                         </div>

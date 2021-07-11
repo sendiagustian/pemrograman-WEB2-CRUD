@@ -17,7 +17,7 @@
                     </x-jet-nav-link>
                 </div>
 
-                @if(Auth::user()->role == 'admin')
+                <!-- @if(Auth::user()->role == 'admin') -->
                 <div class="hidden space-x-4 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('dosen') }}" :active="request()->routeIs('dosen')">
                         {{ __('Dosen') }}
@@ -35,7 +35,7 @@
                         {{ __('Student') }}
                     </x-jet-nav-link>
                 </div>
-                @endif
+                <!-- @endif -->
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">

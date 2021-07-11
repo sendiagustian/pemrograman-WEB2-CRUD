@@ -25,7 +25,7 @@
 
                      <?php $__env->endSlot(); ?>
                      <?php $__env->slot('description'); ?> 
-                        <?php echo e(__('Update your account\'s profile information and email address.')); ?>
+                        <?php echo e(__('Tambah data dosen dengan informasi yang lengkap, isi semua inputan dengan benar.')); ?>
 
                      <?php $__env->endSlot(); ?>
                  <?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
@@ -163,11 +163,11 @@
                                 <!-- Email -->
                                 <div class="col-span-6 sm:col-span-4">
                                     <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
-<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'jetstream::components.label','data' => ['for' => 'keahlian','value' => ''.e(__('Keahlian')).'']]); ?>
+<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'jetstream::components.label','data' => ['for' => 'mata_kuliah','value' => ''.e(__('Mata Kuliah')).'']]); ?>
 <?php $component->withName('jet-label'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php $component->withAttributes(['for' => 'keahlian','value' => ''.e(__('Keahlian')).'']); ?>
+<?php $component->withAttributes(['for' => 'mata_kuliah','value' => ''.e(__('Mata Kuliah')).'']); ?>
 <?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
 <?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
 <?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
@@ -175,11 +175,11 @@
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
                                     <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
-<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'jetstream::components.input','data' => ['id' => 'keahlian','type' => 'text','class' => 'mt-1 block w-full','name' => 'keahlian','value' => old('keahlian'),'required' => true]]); ?>
+<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'jetstream::components.input','data' => ['id' => 'mata_kuliah','type' => 'text','class' => 'mt-1 block w-full','name' => 'mata_kuliah','value' => old('mata_kuliah'),'required' => true]]); ?>
 <?php $component->withName('jet-input'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php $component->withAttributes(['id' => 'keahlian','type' => 'text','class' => 'mt-1 block w-full','name' => 'keahlian','value' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(old('keahlian')),'required' => true]); ?>
+<?php $component->withAttributes(['id' => 'mata_kuliah','type' => 'text','class' => 'mt-1 block w-full','name' => 'mata_kuliah','value' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(old('mata_kuliah')),'required' => true]); ?>
 <?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
 <?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
 <?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
@@ -187,11 +187,11 @@
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
                                     <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
-<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'jetstream::components.input-error','data' => ['for' => 'keahlian','class' => 'mt-2']]); ?>
+<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'jetstream::components.input-error','data' => ['for' => 'mata_kuliah','class' => 'mt-2']]); ?>
 <?php $component->withName('jet-input-error'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php $component->withAttributes(['for' => 'keahlian','class' => 'mt-2']); ?>
+<?php $component->withAttributes(['for' => 'mata_kuliah','class' => 'mt-2']); ?>
 <?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
 <?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
 <?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
